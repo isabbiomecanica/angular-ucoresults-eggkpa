@@ -1,0 +1,9 @@
+<h3>Top Pacientes</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let paciente of pacientes" class="col-1-4"
+    routerLink="/detail/{{paciente.id}}">
+  <div class="module paciente">
+    <h4>{{paciente.name}}</h4>
+  </div>
+</a>
+</div>

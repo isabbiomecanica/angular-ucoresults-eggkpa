@@ -31,13 +31,13 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {DataService} from './data/data.service';
 import {PostDialogComponent} from './post-dialog/post-dialog.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, AppRoutingModule, MaterialModule,
-                  FlexLayoutModule,AppRouters,FormsModule, HttpClientModule,
+                  FlexLayoutModule,AppRouters,FormsModule, HttpClientModule, HttpClientJsonpModule,
                   AngularFireModule.initializeApp(environment.firebase),
                   AngularFireDatabaseModule, AngularFireStorageModule ],
   declarations: [ AppComponent, HelloComponent, PacientesComponent,  

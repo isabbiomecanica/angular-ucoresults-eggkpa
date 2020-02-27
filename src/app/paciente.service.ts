@@ -18,11 +18,13 @@ import 'firebase/firestore';
 
 import { HttpClient } from '@angular/common/http';
 import { HttpErrorResponse, HttpResponse, HttpHeaders} from '@angular/common/http';
+
 import { catchError, retry } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
 const httpOptions = {
-  headers: new HttpHeaders({ "Content-Type": "application/json", 'Access-Control-Allow-Origin':'*', "Authorization": "c31z" })
+  headers: new HttpHeaders({ "Content-Type": "application/json", 'Access-Control-Allow-Origin':'*', "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT",
+  "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept, Authorization"}) //, "Authorization": "c31z" })
 };
 
 
@@ -101,8 +103,9 @@ export class PacienteService {
         
     //this.http.get<UTPatient>(PatientURL).subscribe((data: UTPatient) => elPaciente = { ...data })
     //return this.http.jsonp()
+    
     return this.http.get<UTPatient>(PatientURL, httpOptions).pipe(
-        retry(3), // retry a failed request up to 3 times
+        //retry(3), // retry a failed request up to 3 times
         catchError(this.handleError) // then handle the error
       );
       //console.log(elPaciente.PatientName);

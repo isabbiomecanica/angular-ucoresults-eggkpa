@@ -150,7 +150,10 @@ export class PacienteService {
       this.pruebas = [];
       var contador: number = 0;
       data.forEach(item => {
+        
+        item.payload.forEach( laprueba => { console.log(laprueba);})
         console.log(item.payload.val());
+        
         let tempPrueba : Prueba = {id: 1, name: "Vacio", descripcion: "Vacio", datetime: "Vacio"};
         contador = contador + 1;
         tempPrueba.id = contador;

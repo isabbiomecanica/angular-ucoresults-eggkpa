@@ -79,6 +79,7 @@ export class PacienteService {
         tempPaciente.id = contador;
         tempPaciente.name = item.payload.val();
         this.Dato.push(tempPaciente as Paciente);
+        // podría ver aquí las pruebas
       })
       console.log("Fin Pacientes");
       console.log(this.Dato.length);
@@ -140,6 +141,10 @@ export class PacienteService {
     console.log(this.pruebas.length);
     console.log("Listado Pruebas");
     // hacer un bucle por pacientes
+    //console.log("Cuantos Pacientes");
+    //console.log(this.Dato.length);
+    //this.Dato.forEach(pitem => { console.log(pitem);})
+
     this.itemsRef=this.afd.list('/Pruebas/CROC03');
     this.itemsRef.snapshotChanges().subscribe(data => { 
       this.pruebas = [];
@@ -151,9 +156,9 @@ export class PacienteService {
         tempPrueba.id = contador;
         let cadena = <String> item.payload.val();
         let splitted = cadena.split("_"); 
-        tempPrueba.name = splitted[1];
-        tempPrueba.descripcion = splitted[2];
-        tempPrueba.datetime = splitted[3];
+        tempPrueba.name = splitted[0];
+        tempPrueba.descripcion = splitted[1];
+        tempPrueba.datetime = splitted[2];
         this.pruebas.push(tempPrueba as Prueba);
       })
       console.log("Fin Pruebas");

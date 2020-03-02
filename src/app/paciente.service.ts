@@ -145,7 +145,7 @@ export class PacienteService {
     //console.log(this.Dato.length);
     //this.Dato.forEach(pitem => { console.log(pitem);})
 
-    this.itemsRef=this.afd.list('/Pruebas/CROC03');
+    this.itemsRef=this.afd.list('/Pruebas');
     this.itemsRef.snapshotChanges().subscribe(data => { 
       this.pruebas = [];
       var contador: number = 0;

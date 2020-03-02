@@ -77,8 +77,10 @@ export class PacienteService {
         tempPaciente.name = item.payload.val();
         this.Dato.push(tempPaciente as Paciente);
       })
+      console.log("Finito");
       console.log(this.Dato.length);
     })
+    console.log("Salgo");
     console.log(this.Dato.length);
     return of(this.Dato);
    

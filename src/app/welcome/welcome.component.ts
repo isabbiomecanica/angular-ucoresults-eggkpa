@@ -12,6 +12,7 @@ export class WelcomeComponent implements OnInit {
   constructor(private pacienteService: PacienteService) { }
  ngOnInit() {
     this.pacienteService.getPacientes();
+    this.pacienteService.getPruebas();
   }
   
 

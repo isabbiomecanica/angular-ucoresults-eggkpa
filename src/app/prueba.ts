@@ -1,7 +1,6 @@
 export interface Prueba {
-  usuario: string;
-  descripcion: string;
-  fechahora: Date;
-  position: number;
-  body: string;
-}
+  id: number;
+  name: string;
+  description: string;
+  datetime: Date;
+  }

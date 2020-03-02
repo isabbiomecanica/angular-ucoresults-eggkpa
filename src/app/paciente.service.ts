@@ -5,6 +5,8 @@ import { Observable, of } from 'rxjs';
 import { Paciente } from './paciente';
 import { datoPaciente } from './datopaciente';
 
+import { Prueba } from './prueba';
+
 import { MessageService } from './message.service';
 
 
@@ -54,6 +56,7 @@ export class PacienteService {
   items: Observable<any[]>;
   itemsRef: AngularFireList<any>;
   Dato : Paciente[] = [];
+  pruebas : Prueba[] = [];
 
   constructor(private messageService: MessageService, public afd: AngularFireDatabase, private http: HttpClient) {
     
@@ -77,7 +80,7 @@ export class PacienteService {
         tempPaciente.name = item.payload.val();
         this.Dato.push(tempPaciente as Paciente);
       })
-      console.log("Finito");
+      console.log("Fin Pacientes");
       console.log(this.Dato.length);
     })
     console.log("Salgo");
@@ -130,5 +133,36 @@ export class PacienteService {
     return throwError(
       'Something bad happened; please try again later.');
   };
+
+  getPruebas(): Observable<Prueba[]> {
+    // TODO: send the message _after_ fetching the heroes
+    this.messageService.add('PacienteService: fetched pruebas');
+    console.log(this.pruebas.length);
+    console.log("Listado Pruebas");
+    // hacer un bucle por pacientes
+    this.itemsRef=this.afd.list('/Pruebas/CROC03');
+    this.itemsRef.snapshotChanges().subscribe(data => { 
+      this.pruebas = [];
+      var contador: number = 0;
+      data.forEach(item => {
+        console.log(item.payload.val());
+        let tempPrueba : Prueba = {id: 1, name: "Vacio", descripcion: "Vacio", datetime: "Vacio"};
+        contador = contador + 1;
+        tempPrueba.id = contador;
+        let cadena = <String> item.payload.val();
+        let splitted = cadena.split("_"); 
+        tempPrueba.name = splitted[1];
+        tempPrueba.descripcion = splitted[2];
+        tempPrueba.datetime = splitted[3];
+        this.pruebas.push(tempPrueba as Prueba);
+      })
+      console.log("Fin Pruebas");
+      console.log(this.pruebas.length);
+    })
+    console.log("Salgo");
+    console.log(this.pruebas.length);
+    return of(this.pruebas);
+   
+  }
 
 }

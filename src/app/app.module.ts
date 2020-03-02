@@ -18,7 +18,7 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 
 import { MessagesComponent } from './messages/messages.component';
-import { AppRoutingModule } from './app-routing.module';
+// import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PacientesComponent } from './pacientes/pacientes.component';
 import { PacienteDetailComponent } from './paciente-detail/paciente-detail.component';
@@ -36,7 +36,7 @@ import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, AppRoutingModule, MaterialModule,
+  imports:      [ BrowserModule, FormsModule,  MaterialModule, // AppRoutingModule,
                   FlexLayoutModule,AppRouters,FormsModule, HttpClientModule, HttpClientJsonpModule,
                   AngularFireModule.initializeApp(environment.firebase),
                   AngularFireDatabaseModule, AngularFireStorageModule ],

@@ -8,12 +8,12 @@
     <a mat-list-item
         routerLink="/">
       <mat-icon class="icon">home</mat-icon>
-        <span class="label">Home</span>
+        <span class="label">Inicio</span>
     </a>
     <a mat-list-item
-      routerLink="/dashboard">
+      routerLink="/pacientes">
       <mat-icon class="icon">dashboard</mat-icon>
-      <span class="label">Dashboard</span>
+      <span class="label">Pacientes</span>
     </a>
     <a  mat-list-item
         type="button">
@@ -31,7 +31,7 @@
     </div>
      <div>
        <a routerLink="/">
-          Material Blog
+          iUCOTrack
        </a>
      </div>
      <div fxFlex fxLayout fxLayoutAlign="flex-end"  fxHide.xs>
@@ -46,14 +46,14 @@
               <a
                 routerLink="/">
                   <mat-icon class="icon">home</mat-icon>
-                  <span class="label">Home</span>
+                  <span class="label">Inicio</span>
               </a>
             </li>
             <li>
                 <a
-                  routerLink="/dashboard">
+                  routerLink="/pacientes">
                     <mat-icon class="icon">dashboard</mat-icon>
-                    <span class="label">Dashboard</span>
+                    <span class="label">Pacientes</span>
                 </a>
               </li>
             <li>
@@ -71,21 +71,6 @@
   </mat-sidenav-content>
 </mat-sidenav-container>
 
-<h1>{{title}}</h1>
-
-  
-<nav>
-  <a routerLink="/dashboard-paciente">Dashboard</a>
-  <a routerLink="/pacientes">Pacientes</a>
-</nav>
-<router-outlet></router-outlet>
 <app-messages></app-messages>
 
-Usuarios<p>
-<ul>
-  <li class="text" *ngFor="let item of items | async">
-        {{item.usuario}}
-    
-  </li>
-</ul>
-Fin Usuarios<p> 
+

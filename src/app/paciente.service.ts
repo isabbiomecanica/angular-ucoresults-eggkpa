@@ -62,6 +62,7 @@ export class PacienteService {
   getPacientes(): Observable<Paciente[]> {
     // TODO: send the message _after_ fetching the heroes
     this.messageService.add('PacienteService: fetched pacientes');
+    console.log(this.Dato.length);
     //return of(PACIENTES);
     // Use snapshotChanges().map() to store the key
     console.log("Listado");
@@ -78,6 +79,7 @@ export class PacienteService {
       })
       console.log(this.Dato.length);
     })
+    console.log(this.Dato.length);
     return of(this.Dato);
    
   }

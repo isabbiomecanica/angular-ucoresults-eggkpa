@@ -13,7 +13,7 @@ export class DashboardPacienteComponent implements OnInit {
   constructor(private pacienteService: PacienteService) { }
 
   ngOnInit() {
-    this.getPacientes();
+    this.getPacientes(); // habría que ver si sirve
   }
 
   getPacientes(): void {

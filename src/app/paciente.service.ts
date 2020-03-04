@@ -150,22 +150,22 @@ export class PacienteService {
       this.pruebas = [];
       var contador: number = 0;
       data.forEach(item => {
-        
-        item.payload.forEach( laprueba => { console.log(laprueba);})
-        console.log(item.payload.val());
-        
-        let tempPrueba : Prueba = {id: 1, name: "Vacio", descripcion: "Vacio", datetime: "Vacio"};
-        contador = contador + 1;
-        tempPrueba.id = contador;
-        let cadena = <String> item.payload.val();
-        let splitted = cadena.split("_"); 
-        tempPrueba.name = splitted[0];
-        tempPrueba.descripcion = splitted[1];
-        tempPrueba.datetime = splitted[2];
-        this.pruebas.push(tempPrueba as Prueba);
+        item.payload.forEach( laprueba => { 
+          //console.log(laprueba);
+          let tempPrueba : Prueba = {id: 1, name: "Vacio", descripcion: "Vacio", datetime: "Vacio"};
+          contador = contador + 1;
+          tempPrueba.id = contador;
+          let cadena = <String> laprueba.val();
+          let splitted = cadena.split("_"); 
+          tempPrueba.name = splitted[0];
+          tempPrueba.descripcion = splitted[1];
+          tempPrueba.datetime = splitted[2];
+          this.pruebas.push(tempPrueba as Prueba);
+        })
       })
       console.log("Fin Pruebas");
       console.log(this.pruebas.length);
+      //console.log(this.pruebas);
     })
     console.log("Salgo");
     console.log(this.pruebas.length);

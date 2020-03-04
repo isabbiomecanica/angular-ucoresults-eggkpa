@@ -23,6 +23,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PacientesComponent } from './pacientes/pacientes.component';
 import { PacienteDetailComponent } from './paciente-detail/paciente-detail.component';
 import { DashboardPacienteComponent } from './dashboard-paciente/dashboard-paciente.component';
+import { PruebasComponent } from './pruebas/pruebas.component';
 
 import {AppRouters} from './app.routes';
 import {WelcomeComponent} from './welcome/welcome.component';
@@ -40,7 +41,7 @@ import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
                   FlexLayoutModule,AppRouters,FormsModule, HttpClientModule, HttpClientJsonpModule,
                   AngularFireModule.initializeApp(environment.firebase),
                   AngularFireDatabaseModule, AngularFireStorageModule ],
-  declarations: [ AppComponent, HelloComponent, PacientesComponent,  
+  declarations: [ AppComponent, HelloComponent, PacientesComponent, PruebasComponent, 
                   PacienteDetailComponent, MessagesComponent, DashboardPacienteComponent, WelcomeComponent, PostDialogComponent, DashboardComponent],
   providers: [DataService],
   entryComponents: [ PostDialogComponent ],

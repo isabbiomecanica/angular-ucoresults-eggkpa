@@ -17,6 +17,7 @@ export class PruebasComponent implements OnInit {
 
 pacientes: Paciente[];
 pruebas: Prueba[];
+pacienteSelect: Paciente;
 pruebasSelect: Prueba[];
 
   constructor(private pacienteService: PacienteService, private route: ActivatedRoute) { }
@@ -27,9 +28,9 @@ pruebasSelect: Prueba[];
     const id = +this.route.snapshot.paramMap.get('id');
     console.log("Prueba Seleccionada");
     console.log(id);
-    const nPaciente = this.pruebas.filter(paciente => paciente.id == id);
-    console.log(nPaciente.name);
-    this.pruebasSelect = this.pruebas.filter(prueba => prueba.name === nPaciente);
+    this.pacienteSelect  = <Paciente>this.pacientes.filter(paciente => paciente.id == id);
+    console.log(this.pacienteSelect);
+    this.pruebasSelect = this.pruebas.filter(prueba => prueba.name === nPaciente.name);
     console.log(this.pruebasSelect);
   }
 

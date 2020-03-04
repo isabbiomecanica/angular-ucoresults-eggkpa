@@ -6,8 +6,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import 'rxjs/add/operator/map';
 
-//import { AngularFirestore } from 'angularfire2/firestore';
-
 import { Observable } from 'rxjs';
 import 'firebase/firestore';
 
@@ -22,13 +20,7 @@ export class AppComponent  {
   title = 'Resultados de pacientes';
   items: Observable<any[]>;
   
-  /* constructor(firestore: AngularFirestore) {
-   this.items = firestore.collection('Usuarios').valueChanges();
-   firestore.
-   this.db.database.ref(‘/test’).once(‘value’).then(data => {
-     console.log(data); //300ms later
- });
-  }*/
+  
   itemsRef: AngularFireList<any>;
   items: Observable<any[]>;
 

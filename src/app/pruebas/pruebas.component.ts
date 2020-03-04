@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
 import { Paciente } from '../paciente';
 import { Prueba } from '../prueba';
 
@@ -29,8 +31,8 @@ pruebasSelect: Prueba[];
     console.log("Prueba Seleccionada");
     console.log(id);
     this.pacienteSelect  = <Paciente>this.pacientes.filter(paciente => paciente.id == id);
-    console.log(this.pacienteSelect);
-    this.pruebasSelect = this.pruebas.filter(prueba => prueba.name === nPaciente.name);
+    console.log(this.pacienteSelect[0].name);
+    this.pruebasSelect = this.pruebas.filter(prueba => prueba.name === this.pacienteSelect[0].name);
     console.log(this.pruebasSelect);
   }
 

@@ -82,7 +82,7 @@ export class PruebasComponent implements OnInit {
     const fichero = "/pruebas/"+this.prueba.name+"/"+this.prueba.name+"_"+this.prueba.description+"_"+this.prueba.datetime+"/"+this.prueba.name+"_"+this.prueba.description+"_"+this.prueba.datetime;
     console.log(fichero);
 
-    this.ref = this.afStorage.ref(this.prueba.name+"_"+this.prueba.description+"_"+this.prueba.datetime+".csv");
+    this.ref = this.afStorage.ref(fichero+".csv");
       this.profileUrl = this.ref.getDownloadURL();
       console.log(this.profileUrl);
       //window.open(this.profileUrl);
@@ -92,13 +92,13 @@ export class PruebasComponent implements OnInit {
         //this.downloadFile(laURL);
         //window.open(laURL, "_self");
         window.location.assign(laURL);
-        alert(fichero+".csv");
+        alert(this.prueba.name+"_"+this.prueba.description+"_"+this.prueba.datetime+".csv");
         //this.ficheros.push(laURL);
          }
       });
     for(let i = 1; i < 4; i++)
     {
-      this.ref = this.afStorage.ref(this.prueba.name+"_"+this.prueba.description+"_"+this.prueba.datetime+"_"+i+".csv");
+      this.ref = this.afStorage.ref(fichero+"_"+i+".csv");
       this.profileUrl = this.ref.getDownloadURL();
       console.log(this.profileUrl);
       //window.open(this.profileUrl);
@@ -108,7 +108,7 @@ export class PruebasComponent implements OnInit {
         //this.downloadFile(laURL);
         //window.open(laURL, "_self");
         window.location.assign(laURL);
-        alert(fichero+"_"+i+".csv");
+        alert(this.prueba.name+"_"+this.prueba.description+"_"+this.prueba.datetime+"_"+i+".csv");
         //this.ficheros.push(laURL);
          }
       });

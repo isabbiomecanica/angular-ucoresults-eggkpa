@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,  Input, Observable } from '@angular/core';
 
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
@@ -13,6 +13,10 @@ import { MatTableDataSource } from '@angular/material/table';
 import { PacienteService } from '../paciente.service';
 import { ActivatedRoute } from '@angular/router';
 
+import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
+
+import 'firebase/firestore';
+
 @Component({
   selector: 'app-pruebas',
   templateUrl: './pruebas.component.html',
@@ -20,7 +24,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PruebasComponent implements OnInit {
 
+  ref: AngularFireStorageReference;
+  profileUrl: Observable<string | null>;  
+
   pacientes: Paciente[];
+  prueba: Prueba;
   pruebas: Prueba[];
   pacienteSelect: Paciente;
   pruebasSelect: Prueba[];
@@ -29,7 +37,7 @@ export class PruebasComponent implements OnInit {
   displayedColumns = ['description', 'datetime','download', 'view'];
  
 
-  constructor(private pacienteService: PacienteService, private route: ActivatedRoute) { }
+  constructor(private pacienteService: PacienteService, private route: ActivatedRoute, private afStorage: AngularFireStorage) { }
 
  ngOnInit() {
     this.getPacientes();
@@ -62,14 +70,15 @@ export class PruebasComponent implements OnInit {
   this.location.back();
 }
 
-  download(id): void {
-    
+  download(id: number): void {
+    alert("Download");
+    console.log(id);
     //this.ref = this.afStorage.ref(id);
     let laURL: string;
     // const id = +this.route.snapshot.paramMap.get('id');
-    this.pacienteService.getPaciente(id)
-    .subscribe(paciente => this.paciente = paciente);
-    const fichero = "/usuarios/"+this.paciente.name+"/"+this.paciente.name+".json"
+    this.pacienteService.getPrueba(id)
+    .subscribe(prueba => this.prueba = prueba);
+    const fichero = "/pruebas/"+this.prueba.name+"/"+this.prueba.name+".json"
     console.log(fichero);
     this.ref = this.afStorage.ref(fichero);
     this.profileUrl = this.ref.getDownloadURL();
@@ -80,11 +89,11 @@ export class PruebasComponent implements OnInit {
          laURL=url;
          console.log(laURL);
          // descarga(laURL,this.paciente.name+".json");
-         // window.open(laURL);
+         window.open(laURL);
          // const elPaciente: UTPatient = this.pacienteService.getUTPatient(laURL);
-         console.log("Llamo");
-         this.pacienteService.getUTPatient(laURL).subscribe(UTPatient => this.elPaciente = UTPatient);
-         console.log(this.elPaciente);
+         //console.log("Llamo");
+         //this.pacienteService.getUTPatient(laURL).subscribe(UTPatient => this.elPaciente = UTPatient);
+         //console.log(this.elPaciente);
         }
          
          

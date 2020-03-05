@@ -167,7 +167,7 @@ export class PacienteService {
   // TODO: send the message _after_ fetching the hero
   this.messageService.add(`PacienteService: fetched prueba id=${id}`);
   //return of(PACIENTES.find(paciente => paciente.id === id));
-  return of(this.Dato.find(paciente => paciente.id === id));
+  return of(this.pruebas.find(prueba => prueba.id === id));
   }
 
 }

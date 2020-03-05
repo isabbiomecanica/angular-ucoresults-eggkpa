@@ -35,7 +35,7 @@
                     <ng-container matColumnDef="download">
                       <mat-header-cell *matHeaderCellDef [ngClass]="'anchoIcono'"></mat-header-cell>
                       <mat-cell *matCellDef="let element" [ngClass]="'anchoIcono'">
-                        <a (click)="download(element.position)" type="button">
+                        <a (click)="download(element.id)" type="button">
                         <mat-icon class="icon">cloud_download</mat-icon>
                         </a>
                       </mat-cell>

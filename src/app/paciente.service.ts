@@ -101,23 +101,13 @@ export class PacienteService {
     let elPaciente: UTPatient = [];
     elPaciente.PatientName ="Ejemplo";
     console.log(elPaciente.PatientName);
-    ////return this.http.jsonp<UTPatient>(PatientURL, 'callback');
-        ////.pipe(
-    ////        retry(3), // retry a failed request up to 3 times
-    ////    catchError(this.handleError) // then handle the error
-    ////  );
     
-        
-        
-    //this.http.get<UTPatient>(PatientURL).subscribe((data: UTPatient) => elPaciente = { ...data })
-    //return this.http.jsonp()
     
     return this.http.get<UTPatient>(PatientURL, httpOptions).pipe(
         //retry(3), // retry a failed request up to 3 times
         catchError(this.handleError) // then handle the error
       );
-      //console.log(elPaciente.PatientName);
-     // return elPaciente;
+    
   }
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {

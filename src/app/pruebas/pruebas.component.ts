@@ -5,6 +5,8 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { Paciente } from '../paciente';
 import { Prueba } from '../prueba';
 
+import {DataSource} from '@angular/cdk/table';
+
 // import { HEROES } from '../mock-heroes';
 
 import { PacienteService } from '../paciente.service';
@@ -21,6 +23,11 @@ pacientes: Paciente[];
 pruebas: Prueba[];
 pacienteSelect: Paciente;
 pruebasSelect: Prueba[];
+
+
+
+ displayedColumns = ['id', 'name', 'date', 'description'];
+ dataSource = new PostDataSource(this.pacienteService);
 
   constructor(private pacienteService: PacienteService, private route: ActivatedRoute) { }
 
@@ -49,4 +56,17 @@ pruebasSelect: Prueba[];
   }
   
 
+}
+
+export class PostDataSource extends DataSource<any> {
+  constructor(private pacienteService: PacienteService) {
+    super();
+  }
+
+  connect(): Observable<Prueba[]> {
+    return this.pruebasSelect;
+  }
+
+  disconnect() {
+  }
 }

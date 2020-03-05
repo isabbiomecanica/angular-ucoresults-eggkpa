@@ -8,32 +8,6 @@
 </ul>
 
 
-<div class="example-container mat-elevation-z8">
-    <mat-table [dataSource]="dataSource">
-        <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef> id </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{ row.id }} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef> name </mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{ row.name }} </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef="description">
-            <mat-header-cell *matHeaderCellDef> description </mat-header-cell>
-            <mat-cell *matCellDef="let row">{{row.description}}</mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="datetime">
-            <mat-header-cell *matHeaderCellDef> datetime </mat-header-cell>
-            <mat-cell *matCellDef="let row">{{row.datetime}}</mat-cell>
-        </ng-container>
-
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table>
-</div>
-
-
 <div>
   <br>
     <div class="container">
@@ -43,25 +17,34 @@
       <div fxLayout="row" fxLayoutAlign="center center" class="content">
         <mat-card class="card" >
           <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
-            <h3>Pruebas realizadas</h3>
+            <h3 *ngFor="let paciente of pacienteSelect">Pruebas realizadas al paciente {{paciente.name}}</h3>
           </mat-card-title>
           <mat-card-content>
               <div class="example-container mat-elevation-z8">
-                  <mat-table #table [dataSource]="pruebasSelect">
-                  <ng-container matColumnDef="datetime">
-                    <mat-header-cell *matHeaderCellDef> Date Time </mat-header-cell>
-                    <mat-cell *matCellDef="let element"> {{element.datetime}} </mat-cell>
-                  </ng-container>
-                    <ng-container matColumnDef="title">
-                      <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                  <mat-table #table [dataSource]="dataSource">
+
+                  
+                    <ng-container matColumnDef="description">
+                      <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
                       <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
                     </ng-container>
-                    
-                    <ng-container matColumnDef="delete">
-                      <mat-header-cell *matHeaderCellDef></mat-header-cell>
-                      <mat-cell *matCellDef="let element">
-                        <a (click)="deletePost(element.position)" type="button">
-                        <mat-icon class="icon">delete</mat-icon>
+                    <ng-container matColumnDef="datetime">
+                      <mat-header-cell *matHeaderCellDef> Fecha y Hora </mat-header-cell>
+                      <mat-cell *matCellDef="let element"> {{element.datetime}} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="download">
+                      <mat-header-cell *matHeaderCellDef [ngClass]="'anchoIcono'"></mat-header-cell>
+                      <mat-cell *matCellDef="let element" [ngClass]="'anchoIcono'">
+                        <a (click)="download(element.position)" type="button">
+                        <mat-icon class="icon">cloud_download</mat-icon>
+                        </a>
+                      </mat-cell>
+                    </ng-container> 
+                    <ng-container matColumnDef="view">
+                      <mat-header-cell *matHeaderCellDef [ngClass]="'anchoIcono'"></mat-header-cell>
+                      <mat-cell *matCellDef="let element" [ngClass]="'anchoIcono'">
+                        <a (click)="view(element.position)" type="button">
+                        <mat-icon class="icon">visibility</mat-icon>
                         </a>
                       </mat-cell>
                     </ng-container>

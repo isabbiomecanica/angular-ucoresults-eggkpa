@@ -89,7 +89,8 @@ export class PruebasComponent implements OnInit {
       if(url){
         laURL=url;
         //this.downloadFile(laURL);
-        window.open(laURL, "_self");
+        //window.open(laURL, "_self");
+        window.location.assign(laURL);
          }
       });
     for(let i = 1; i < 4; i++)
@@ -102,7 +103,8 @@ export class PruebasComponent implements OnInit {
       if(url){
         laURL=url;
         //this.downloadFile(laURL);
-        window.open(laURL, "_self");
+        //window.open(laURL, "_self");
+        window.location.assign(laURL);
          }
       });
     }
@@ -110,10 +112,19 @@ export class PruebasComponent implements OnInit {
   }
 
   downloadFile(filePath: string): void {
-    var link=document.createElement('a');
-    link.href = filePath;
-    link.download = filePath.substr(filePath.lastIndexOf('/') + 1);
-    link.click();
+    var a = document.createElement('A');
+    
+    a.href = filePath;
+    a.download = filePath.substr(filePath.lastIndexOf('/') + 1);
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+
+    //var link=document.createElement('a');
+    //link.href = filePath;
+    //link.download = filePath.substr(filePath.lastIndexOf('/') + 1);
+    //link.click();
 }
 
   view(id) {

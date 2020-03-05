@@ -8,6 +8,22 @@
 </ul>
 
 
+<div class="container">
+    <mat-table #table [dataSource]="pruebasSelect">
+        <ng-container matColumnDef="number">
+            <mat-header-cell *matHeaderCellDef> Number </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{ row.id }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Code">
+            <mat-header-cell *matHeaderCellDef> Code </mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.description}}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+</div>
 
 
 <div>

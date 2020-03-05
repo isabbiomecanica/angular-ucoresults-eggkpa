@@ -148,7 +148,7 @@ export class PacienteService {
           let cadena = <String> laprueba.val();
           let splitted = cadena.split("_"); 
           tempPrueba.name = splitted[0];
-          tempPrueba.descripcion = splitted[1];
+          tempPrueba.description = splitted[1];
           tempPrueba.datetime = splitted[2];
           this.pruebas.push(tempPrueba as Prueba);
         })

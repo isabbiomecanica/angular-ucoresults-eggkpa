@@ -6,6 +6,7 @@ import { Paciente } from '../paciente';
 import { Prueba } from '../prueba';
 
 import {DataSource} from '@angular/cdk/table';
+import { MatTableDataSource } from '@angular/material/table';
 
 // import { HEROES } from '../mock-heroes';
 
@@ -19,15 +20,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PruebasComponent implements OnInit {
 
-pacientes: Paciente[];
-pruebas: Prueba[];
-pacienteSelect: Paciente;
-pruebasSelect: Prueba[];
+  pacientes: Paciente[];
+  pruebas: Prueba[];
+  pacienteSelect: Paciente;
+  pruebasSelect: Prueba[];
 
-
-
- displayedColumns = ['id', 'name', 'date', 'description'];
- dataSource = new PostDataSource(this.pacienteService);
+  dataSource: MatTableDataSource<Prueba>;
+  displayedColumns = ['id', 'name', 'description', 'datetime'];
+ 
 
   constructor(private pacienteService: PacienteService, private route: ActivatedRoute) { }
 
@@ -40,7 +40,9 @@ pruebasSelect: Prueba[];
     this.pacienteSelect  = <Paciente>this.pacientes.filter(paciente => paciente.id == id);
     console.log(this.pacienteSelect[0].name);
     this.pruebasSelect = this.pruebas.filter(prueba => prueba.name === this.pacienteSelect[0].name);
-    console.log(this.pruebasSelect);
+    
+    this.dataSource = new MatTableDataSource(this.pruebasSelect);
+    console.log(this.dataSource);
   }
 
   getPacientes(): void {

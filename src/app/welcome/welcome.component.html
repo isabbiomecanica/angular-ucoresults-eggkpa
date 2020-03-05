@@ -13,7 +13,7 @@
 </div>
 
 <div class="example-container mat-elevation-z8">
-    <mat-table #table [dataSource]="dataSource">
+    <mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="ID">
             <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
             <mat-cell *matCellDef="let row"> {{ row.ID }} </mat-cell>

@@ -7,7 +7,10 @@ import { MessageService } from '../message.service';
 
 import { MatTableDataSource} from '@angular/material/table';
 import { MatPaginator} from '@angular/material/paginator';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 import { MatSort} from '@angular/material/sort';
+import {PageEvent} from '@angular/material/paginator';
 
 
 @Component({
@@ -21,12 +24,16 @@ export class PacientesComponent implements OnInit {
   dataSource: MatTableDataSource<Paciente>;
   displayedColumns = ['id', 'name'];
 
+  length = 100;
+  pageSize = 10;
+  pageSizeOptions: number[] = [5, 10, 25, 100];
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private pacienteService: PacienteService) {
 
-    this.dataSource = new MatTableDataSource(this.pacientes);
+    
    }
 
     /**
@@ -44,8 +51,21 @@ export class PacientesComponent implements OnInit {
     this.dataSource.filter = filterValue;
   }
 
+// MatPaginator Output
+  pageEvent: PageEvent;
+
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    if (setPageSizeOptionsInput) {
+      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+    }
+  }
+
   ngOnInit() {
     this.getPacientes();
+    this.dataSource = new MatTableDataSource(this.pacientes);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    
   }
 
   getPacientes(): void {

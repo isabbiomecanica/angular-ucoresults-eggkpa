@@ -1,11 +1,16 @@
-<h2>Pacientes</h2>
-<ul class="pacientes">
-  <li *ngFor="let paciente of pacientes">
-    <a routerLink="/detail/{{paciente.id}}">
-      <span class="badge">{{paciente.id}}</span> {{paciente.name}}
-    </a>
-  </li>
-</ul>
+
+<div>
+  <br>
+    <div class="container">
+        
+    <br>
+    <div class="container">
+      <div fxLayout="row" fxLayoutAlign="center center" class="content">
+        <mat-card class="card" >
+          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
+            <h3>Listado de pacientes</h3>
+          </mat-card-title>
+          <mat-card-content>
 
 <div class="example-header">
   <mat-form-field>
@@ -26,14 +31,24 @@
     <!-- Progress Column -->
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef mat-sort-header> Codigo </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.name}}% </mat-cell>
+      
+      <mat-cell *matCellDef="let row"> {{row.name}}</mat-cell>
     </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    <mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="/detail/{{row.id}}" class="row-hover" style="cursor:pointer;" >
     </mat-row>
   </mat-table>
-
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+<mat-paginator 
+               [pageSizeOptions]="pageSizeOptions">
+</mat-paginator>
+  
 </div>
 
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

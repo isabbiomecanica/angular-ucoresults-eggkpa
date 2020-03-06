@@ -14,6 +14,9 @@ import { environment } from '../environments/environment';
 import {MaterialModule} from './material.module';
 import {FlexLayoutModule} from '@angular/flex-layout';
 
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 
@@ -40,7 +43,7 @@ import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
   imports:      [ BrowserModule, FormsModule,  MaterialModule, // AppRoutingModule,
                   FlexLayoutModule,AppRouters,FormsModule, HttpClientModule, HttpClientJsonpModule,
                   AngularFireModule.initializeApp(environment.firebase),
-                  AngularFireDatabaseModule, AngularFireStorageModule ],
+                  AngularFireDatabaseModule, AngularFireStorageModule, MatPaginatorModule, MatSortModule ],
   declarations: [ AppComponent, HelloComponent, PacientesComponent, PruebasComponent, 
                   PacienteDetailComponent, MessagesComponent, DashboardPacienteComponent, WelcomeComponent, PostDialogComponent, DashboardComponent],
   providers: [DataService],

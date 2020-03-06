@@ -1,11 +1,3 @@
-<h2>Pacientes</h2>
-<ul class="pacientes">
-  <li *ngFor="let prueba of pruebasSelect">
-    <a routerLink="/detail/{{prueba.name}}">
-      <span class="badge">{{prueba.id}}</span> {{prueba.name}} {{prueba.description}} {{prueba.datetime}}  
-    </a>
-  </li>
-</ul>
 
 
 <div>
@@ -58,3 +50,12 @@
     </div>
   </div>
 </div>
+
+<h2>Pacientes</h2>
+<ul class="pacientes">
+  <li *ngFor="let prueba of pruebasSelect">
+    <a routerLink="/detail/{{prueba.name}}">
+      <span class="badge">{{prueba.id}}</span> {{prueba.name}} {{prueba.description}} {{prueba.datetime}}  
+    </a>
+  </li>
+</ul>

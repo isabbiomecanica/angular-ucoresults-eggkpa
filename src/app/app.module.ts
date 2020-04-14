@@ -41,13 +41,14 @@ import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { ResultadosComponent } from './resultados/resultados.component';
 
 
+
 @NgModule({
   imports:      [ BrowserModule, FormsModule,  MaterialModule, // AppRoutingModule,
                   FlexLayoutModule,AppRouters,FormsModule, HttpClientModule, HttpClientJsonpModule,
                   AngularFireModule.initializeApp(environment.firebase),ReactiveFormsModule,
                   AngularFireDatabaseModule, AngularFireStorageModule, MatPaginatorModule, MatSortModule ],
   declarations: [ AppComponent, HelloComponent, PacientesComponent, PruebasComponent, 
-                  PacienteDetailComponent, MessagesComponent, DashboardPacienteComponent, WelcomeComponent, PostDialogComponent, DashboardComponent],
+                  PacienteDetailComponent, MessagesComponent, DashboardPacienteComponent, WelcomeComponent, PostDialogComponent, DashboardComponent, ResultadosComponent],
   providers: [DataService],
   entryComponents: [ PostDialogComponent, ResultadosComponent ],
   bootstrap:    [ AppComponent ]

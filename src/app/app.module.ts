@@ -38,6 +38,7 @@ import {PostDialogComponent} from './post-dialog/post-dialog.component';
 
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { ResultadosComponent } from './resultados/resultados.component';
 
 
 @NgModule({
@@ -48,7 +49,7 @@ import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
   declarations: [ AppComponent, HelloComponent, PacientesComponent, PruebasComponent, 
                   PacienteDetailComponent, MessagesComponent, DashboardPacienteComponent, WelcomeComponent, PostDialogComponent, DashboardComponent],
   providers: [DataService],
-  entryComponents: [ PostDialogComponent ],
+  entryComponents: [ PostDialogComponent, ResultadosComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

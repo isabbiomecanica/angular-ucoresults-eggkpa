@@ -17,6 +17,8 @@ import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask 
 
 import 'firebase/firestore';
 
+import { ResultadosComponent } from '../resultados/resultados.component';
+
 @Component({
   selector: 'app-pruebas',
   templateUrl: './pruebas.component.html',
@@ -38,7 +40,7 @@ export class PruebasComponent implements OnInit {
   displayedColumns = ['description', 'datetime','download', 'view'];
  
 
-  constructor(private pacienteService: PacienteService, private route: ActivatedRoute, private afStorage: AngularFireStorage) { }
+  constructor(private pacienteService: PacienteService, private route: ActivatedRoute, private afStorage: AngularFireStorage, public dialog: MatDialog) { }
 
  ngOnInit() {
     this.getPacientes();
@@ -135,7 +137,11 @@ export class PruebasComponent implements OnInit {
 
   view(id) {
     
-      alert('Ver!');
+    
+    const dialogRef = this.dialog.open(ResultadosComponent,{
+      width: '640px',disableClose: true 
+    });    
+      
     }
 
 }

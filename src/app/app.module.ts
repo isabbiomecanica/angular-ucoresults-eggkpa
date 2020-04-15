@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { APP_BASE_HREF } from '@angular/common';
@@ -27,7 +27,7 @@ import { PacientesComponent } from './pacientes/pacientes.component';
 import { PacienteDetailComponent } from './paciente-detail/paciente-detail.component';
 import { DashboardPacienteComponent } from './dashboard-paciente/dashboard-paciente.component';
 import { PruebasComponent } from './pruebas/pruebas.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import {AppRouters} from './app.routes';
 import {WelcomeComponent} from './welcome/welcome.component';
@@ -44,8 +44,8 @@ import { ResultadosComponent } from './resultados/resultados.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule,  MaterialModule, // AppRoutingModule,
-                  FlexLayoutModule,AppRouters,FormsModule, HttpClientModule, HttpClientJsonpModule,
-                  AngularFireModule.initializeApp(environment.firebase),ReactiveFormsModule,
+                  FlexLayoutModule,AppRouters, HttpClientModule, HttpClientJsonpModule,
+                  AngularFireModule.initializeApp(environment.firebase), ReactiveFormsModule,
                   AngularFireDatabaseModule, AngularFireStorageModule, MatPaginatorModule, MatSortModule ],
   declarations: [ AppComponent, HelloComponent, PacientesComponent, PruebasComponent, 
                   PacienteDetailComponent, MessagesComponent, DashboardPacienteComponent, WelcomeComponent, PostDialogComponent, DashboardComponent, ResultadosComponent],

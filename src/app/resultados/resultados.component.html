@@ -1,6 +1,19 @@
-<p>
+
 resultados works!
 
+ 
+<div *ngIf="resultado" class="patientName">{{resultado.patientName}}</div>
+<H3> Resultados de Movilidad </H3>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName" disabled>
+  </label>
 
-
-</p>
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName" disabled>
+  </label>
+<button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>

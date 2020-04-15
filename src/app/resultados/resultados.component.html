@@ -1,19 +1,30 @@
 
-resultados works!
-
- 
-<div *ngIf="resultado" class="patientName">{{resultado.patientName}}</div>
-<H3> Resultados de Movilidad </H3>
-<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+<h2 mat-dialog-title>{{resultado.patientName}}</h2>
+<mat-dialog-content>
   
-  <label>
-    First Name:
-    <input type="text" formControlName="firstName" disabled>
-  </label>
+<table width="80%">
+<tr><td><h2>Flexión Extensión</h2>
 
-  <label>
-    Last Name:
-    <input type="text" formControlName="lastName" disabled>
-  </label>
-<button type="submit" [disabled]="!profileForm.valid">Submit</button>
-</form>
+  <table>
+    <tr><td>Flexión:</td><td><input type="text" [formControl]="flexion" disabled> </td><td>Mala</td></tr>
+    <tr><td>Extensión:</td><td><input type="text" [formControl]="extension" disabled></td><td>Buena</td></tr>
+    <tr><td>Total:</td><td><input type="text" [formControl]="extension" disabled></td><td>Excelente</td></tr>
+  </table>
+</td>
+<td><h2>Flexión Extensión</h2>
+
+  <table>
+    <tr><td>Flexión:</td><td><input type="text" [formControl]="flexion" disabled> </td></tr>
+    <tr><td>Extensión:</td><td><input type="text" [formControl]="extension" disabled></td></tr>
+  </table>
+</td>
+
+
+</tr>
+</table>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cerrar</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+</mat-dialog-actions>
+

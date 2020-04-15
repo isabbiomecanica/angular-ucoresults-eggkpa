@@ -40,12 +40,12 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { ResultadosComponent } from './resultados/resultados.component';
 
-
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule,  MaterialModule, // AppRoutingModule,
                   FlexLayoutModule,AppRouters, HttpClientModule, HttpClientJsonpModule,
-                  AngularFireModule.initializeApp(environment.firebase), ReactiveFormsModule,
+                  AngularFireModule.initializeApp(environment.firebase), ReactiveFormsModule, MatGridListModule,
                   AngularFireDatabaseModule, AngularFireStorageModule, MatPaginatorModule, MatSortModule ],
   declarations: [ AppComponent, HelloComponent, PacientesComponent, PruebasComponent, 
                   PacienteDetailComponent, MessagesComponent, DashboardPacienteComponent, WelcomeComponent, PostDialogComponent, DashboardComponent, ResultadosComponent],

@@ -139,7 +139,7 @@ export class PruebasComponent implements OnInit {
     
     
     const dialogRef = this.dialog.open(ResultadosComponent,{
-      width: '640px',disableClose: true 
+      width: '1200px', disableClose: true 
     });    
       
     }

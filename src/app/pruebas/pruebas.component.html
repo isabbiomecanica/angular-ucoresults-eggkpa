@@ -35,7 +35,7 @@
                     <ng-container matColumnDef="view">
                       <mat-header-cell *matHeaderCellDef [ngClass]="'anchoIcono'"></mat-header-cell>
                       <mat-cell *matCellDef="let element" [ngClass]="'anchoIcono'">
-                        <a (click)="view(element.position)" type="button">
+                        <a (click)="view(element.id)" type="button">
                         <mat-icon class="icon">visibility</mat-icon>
                         </a>
                       </mat-cell>

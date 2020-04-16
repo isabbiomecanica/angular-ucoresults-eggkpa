@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 
 import { FormGroup, FormControl } from '@angular/forms';
 
@@ -8,7 +8,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AngularFireStorage, AngularFireStorageReference, AngularFireUploadTask } from 'angularfire2/storage';
 import 'firebase/firestore';
 
-
+import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-resultados',
@@ -29,15 +29,22 @@ export class ResultadosComponent implements OnInit {
   flexion = new FormControl('');
   extension = new FormControl('');
 
-  constructor(public afd: AngularFireDatabase) {
-  // this.resultado = new Resultado();  
+  camino: string;
 
+  constructor(public afd: AngularFireDatabase, @Inject(MAT_DIALOG_DATA) data) {
+  // this.resultado = new Resultado();  
+  
+   
+
+        this.camino = data.camino;
+    
   
   this.eval.push('Buena');
-  this.eval.push('Buena');
-  this.eval.push('Buena');
-  
-  this.oresultado = afd.object('/Resultados/FOR017/FOR017_Prueba Cervical_04-03-2020, 11:13').valueChanges().subscribe(data => {
+  this.eval.push('Regular');
+  this.eval.push('Mala');
+  console.log(this.camino);
+  //this.oresultado = afd.object('/Resultados/FOR017/FOR017_Prueba Cervical_04-03-2020, 11:13').valueChanges().subscribe(data => {
+  this.oresultado = afd.object(this.camino).valueChanges().subscribe(data => {
       console.log(data);
       this.resultado = <resultado>data; 
       this.flexion.setValue(this.resultado.maxPitch.toFixed(2));

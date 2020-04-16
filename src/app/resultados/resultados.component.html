@@ -2,22 +2,22 @@
 <h2 mat-dialog-title>{{resultado.patientName}}</h2>
 <mat-dialog-content>
   
-<table width="80%">
+<table width="80%" border=1>
 <tr><td><h2>Flexión Extensión</h2>
   <table>
     <tr><td>Flexión:</td><td><input type="text" [formControl]="flexion" disabled></td><td>{{eval[1]}}</td></tr>
-    <tr><td>Extensión:</td><td><input type="text" [formControl]="extension" disabled></td><td>{{eval[2]}}/td></tr>
+    <tr><td>Extensión:</td><td><input type="text" [formControl]="extension" disabled></td><td>{{eval[2]}}</td></tr>
     <tr><td>Total:</td><td><input type="text" [formControl]="extension" disabled></td><td>{{eval[3]}}</td></tr>
   </table>
 </td>
-<tr><td><h2>Rotación</h2>
+<td><h2>Rotación</h2>
   <table>
     <tr><td>Izquierda:</td><td><input type="text" [formControl]="flexion" disabled></td><td>{{eval[1]}}</td></tr>
     <tr><td>Derecha:</td><td><input type="text" [formControl]="extension" disabled></td><td>{{eval[2]}}</td></tr>
     <tr><td>Total:</td><td><input type="text" [formControl]="extension" disabled></td><td>{{eval[3]}}</td></tr>
   </table>
 </td>
-<tr><td><h2>Flexión Lateral</h2>
+<td><h2>Flexión Lateral</h2>
   <table>
     <tr><td>Izquierda:</td><td><input type="text" [formControl]="flexion" disabled></td><td>{{eval[1]}}</td></tr>
     <tr><td>Derecha:</td><td><input type="text" [formControl]="extension" disabled></td><td>{{eval[2]}}</td></tr>
@@ -28,6 +28,7 @@
 
 </tr>
 </table>
+<img src="https://firebasestorage.googleapis.com/v0/b/iucotrackdata.appspot.com/o/resultados%2FFOR011%2FFOR011_Prueba%20Cervical_12-11-2019%2C%2010%3A54%2FResult_FOR011_Prueba%20Cervical_12-11-2019%2C%2010%3A54?alt=media&token=1a0fa9b0-e9b5-4838-afe0-456513ceef3a">
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cerrar</button>

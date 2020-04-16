@@ -1,6 +1,8 @@
 import { Component, OnInit,  Input, Observable } from '@angular/core';
 
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialogConfig} from "@angular/material";
+
 
 import { Paciente } from '../paciente';
 import { Prueba } from '../prueba';
@@ -135,12 +137,29 @@ export class PruebasComponent implements OnInit {
     //link.click();
 }
 
-  view(id) {
+  view(id: number) {
+       /*const dialogConfig = new MatDialogConfig();
+       dialogConfig.disableClose = true;
+       dialogConfig.autoFocus = true;
+       dialogConfig.width = '1200px';
+       dialogConfig.data = {
+       camino: id
+    };*/
     
+    // '/Resultados/FOR017/FOR017_Prueba%20Cervical_04-03-2020,%2011:13'
     
-    const dialogRef = this.dialog.open(ResultadosComponent,{
-      width: '1200px', disableClose: true 
-    });    
+    this.pacienteService.getPrueba(id)
+    .subscribe(prueba => this.prueba = prueba);
+    const idcamino = "/Resultados/"+this.prueba.name+"/"+this.prueba.name+"_"+this.prueba.description+"_"+this.prueba.datetime;
+    console.log(idcamino);
+    
+    /*
+    this.ref = this.afStorage.ref(fichero+".csv");
+    this.profileUrl = this.ref.getDownloadURL();
+    console.log(this.profileUrl);
+    */
+
+    const dialogRef = this.dialog.open(ResultadosComponent,{ width:'1200px', disableClose: true, data: { camino: idcamino }});    
       
     }
 

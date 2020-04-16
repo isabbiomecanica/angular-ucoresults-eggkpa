@@ -4,18 +4,24 @@
   
 <table width="80%">
 <tr><td><h2>Flexión Extensión</h2>
-
   <table>
-    <tr><td>Flexión:</td><td><input type="text" [formControl]="flexion" disabled> </td><td>Mala</td></tr>
-    <tr><td>Extensión:</td><td><input type="text" [formControl]="extension" disabled></td><td>Buena</td></tr>
-    <tr><td>Total:</td><td><input type="text" [formControl]="extension" disabled></td><td>Excelente</td></tr>
+    <tr><td>Flexión:</td><td><input type="text" [formControl]="flexion" disabled></td><td>{{eval[1]}}</td></tr>
+    <tr><td>Extensión:</td><td><input type="text" [formControl]="extension" disabled></td><td>{{eval[2]}}/td></tr>
+    <tr><td>Total:</td><td><input type="text" [formControl]="extension" disabled></td><td>{{eval[3]}}</td></tr>
   </table>
 </td>
-<td><h2>Flexión Extensión</h2>
-
+<tr><td><h2>Rotación</h2>
   <table>
-    <tr><td>Flexión:</td><td><input type="text" [formControl]="flexion" disabled> </td></tr>
-    <tr><td>Extensión:</td><td><input type="text" [formControl]="extension" disabled></td></tr>
+    <tr><td>Izquierda:</td><td><input type="text" [formControl]="flexion" disabled></td><td>{{eval[1]}}</td></tr>
+    <tr><td>Derecha:</td><td><input type="text" [formControl]="extension" disabled></td><td>{{eval[2]}}</td></tr>
+    <tr><td>Total:</td><td><input type="text" [formControl]="extension" disabled></td><td>{{eval[3]}}</td></tr>
+  </table>
+</td>
+<tr><td><h2>Flexión Lateral</h2>
+  <table>
+    <tr><td>Izquierda:</td><td><input type="text" [formControl]="flexion" disabled></td><td>{{eval[1]}}</td></tr>
+    <tr><td>Derecha:</td><td><input type="text" [formControl]="extension" disabled></td><td>{{eval[2]}}</td></tr>
+    <tr><td>Total:</td><td><input type="text" [formControl]="extension" disabled></td><td>{{eval[3]}}</td></tr>
   </table>
 </td>
 
@@ -25,6 +31,6 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cerrar</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+  
 </mat-dialog-actions>
 

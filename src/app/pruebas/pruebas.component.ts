@@ -138,13 +138,7 @@ export class PruebasComponent implements OnInit {
 }
 
   view(id: number) {
-       /*const dialogConfig = new MatDialogConfig();
-       dialogConfig.disableClose = true;
-       dialogConfig.autoFocus = true;
-       dialogConfig.width = '1200px';
-       dialogConfig.data = {
-       camino: id
-    };*/
+      
     
     // '/Resultados/FOR017/FOR017_Prueba%20Cervical_04-03-2020,%2011:13'
     

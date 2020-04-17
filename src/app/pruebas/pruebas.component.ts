@@ -153,13 +153,24 @@ export class PruebasComponent implements OnInit {
     const idcamino = "/Resultados/"+this.prueba.name+"/"+this.prueba.name+"_"+this.prueba.description+"_"+this.prueba.datetime;
     console.log(idcamino);
     
-    /*
-    this.ref = this.afStorage.ref(fichero+".csv");
+    let laURL: string;
+    const idGrafica = "/resultados/"+this.prueba.name+"/"+this.prueba.name+"_"+this.prueba.description+"_"+this.prueba.datetime+"/Result_"+this.prueba.name+"_"+this.prueba.description+"_"+this.prueba.datetime;
+    console.log(idGrafica);
+
+
+    this.ref = this.afStorage.ref(idGrafica);
     this.profileUrl = this.ref.getDownloadURL();
     console.log(this.profileUrl);
-    */
+    
+    this.profileUrl.subscribe(url=>{
+      if(url){
+        laURL=url;
+          const dialogRef = this.dialog.open(ResultadosComponent,{ width:'1200px', disableClose: true, data: { camino: idcamino, caminografica: laURL }});    
+         }
+      });
 
-    const dialogRef = this.dialog.open(ResultadosComponent,{ width:'1200px', disableClose: true, data: { camino: idcamino }});    
+
+    
       
     }
 

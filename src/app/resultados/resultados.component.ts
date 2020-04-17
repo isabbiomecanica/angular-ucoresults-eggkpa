@@ -30,6 +30,7 @@ export class ResultadosComponent implements OnInit {
   extension = new FormControl('');
 
   camino: string;
+  caminografica: string;
 
   constructor(public afd: AngularFireDatabase, @Inject(MAT_DIALOG_DATA) data) {
   // this.resultado = new Resultado();  
@@ -37,6 +38,7 @@ export class ResultadosComponent implements OnInit {
    
 
         this.camino = data.camino;
+        this.caminografica = data.caminografica;
     
   
   this.eval.push('Buena');

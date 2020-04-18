@@ -17,17 +17,26 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 export class ResultadosComponent implements OnInit {
 
+/*
    profileForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
   });
-  
+  */
+
   oresultado: AngularFireObject<any>;
   resultado: Resultado;
   ref: AngularFireStorageReference;
   eval: Array <String>=[];
-  flexion = new FormControl('');
-  extension = new FormControl('');
+  FLEX_F = new FormControl('');
+  FLEX_E = new FormControl('');
+  FLEX = new FormControl('');
+  ROT_L = new FormControl('');
+  ROT_R = new FormControl('');
+  ROT = new FormControl('');
+  LAT_L = new FormControl('');
+  LAT_R = new FormControl('');
+  LAT = new FormControl('');
 
   camino: string;
   caminografica: string;
@@ -49,8 +58,15 @@ export class ResultadosComponent implements OnInit {
   this.oresultado = afd.object(this.camino).valueChanges().subscribe(data => {
       console.log(data);
       this.resultado = <resultado>data; 
-      this.flexion.setValue(this.resultado.maxPitch.toFixed(2));
-      this.extension.setValue(this.resultado.maxRoll.toFixed(2));
+      this.FLEX_F.setValue(this.resultado.maxRoll.toFixed(2));
+      this.FLEX_E.setValue(this.resultado.minRoll.toFixed(2));
+      this.FLEX.setValue(this.resultado.maxRoll.toFixed(2)-this.resultado.minRoll.toFixed(2));
+      this.ROT_L.setValue(this.resultado.maxYaw.toFixed(2));
+      this.ROT_R.setValue(this.resultado.minYaw.toFixed(2));
+      this.ROT.setValue(this.resultado.maxYaw.toFixed(2)-this.resultado.minYaw.toFixed(2));
+      this.LAT_L.setValue(this.resultado.maxPitch.toFixed(2));
+      this.LAT_R.setValue(this.resultado.minPitch.toFixed(2));
+      this.LAT.setValue(this.resultado.maxPitch.toFixed(2)-this.resultado.minPitch.toFixed(2));
       console.log(this.resultado.patientName);});
   //this.resultado = afd.collection('/Resultados/FOR017/FOR017_Prueba%20Cervical_04-03-2020,%2011:13').valueChanges();
   

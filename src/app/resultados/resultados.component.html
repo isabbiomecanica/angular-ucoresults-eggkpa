@@ -3,6 +3,7 @@
 <mat-dialog-content>
   
 <table width="80%" border=1>
+  <h2> Rango de movimiento </h2>
 <tr><td><h2>Flexión Extensión</h2>
   <table>
     <tr><td>Flexión:</td><td><input type="text" [formControl]="FLEX_F" disabled></td><td>{{eval[1]}}</td></tr>
@@ -25,10 +26,32 @@
   </table>
 </td>
 
-
 </tr>
 </table>
 <img mat-card-image src="{{caminografica}}" alt="Grafica">
+  <h2> Sensor superior </h2>
+<tr><td><h2>Flexión Extensión</h2>
+  <table>
+    <tr><td>Flexión:</td><td><input type="text" [formControl]="U_FLEX_F" disabled></td><td>{{eval[1]}}</td></tr>
+    <tr><td>Extensión:</td><td><input type="text" [formControl]="U_FLEX_E" disabled></td><td>{{eval[2]}}</td></tr>
+    <tr><td>Total:</td><td><input type="text" [formControl]="U_FLEX" disabled></td><td>{{eval[3]}}</td></tr>
+  </table>
+</td>
+<td><h2>Rotación</h2>
+  <table>
+    <tr><td>Izquierda:</td><td><input type="text" [formControl]="U_ROT_L" disabled></td><td>{{eval[1]}}</td></tr>
+    <tr><td>Derecha:</td><td><input type="text" [formControl]="U_ROT_R" disabled></td><td>{{eval[2]}}</td></tr>
+    <tr><td>Total:</td><td><input type="text" [formControl]="U_ROT" disabled></td><td>{{eval[3]}}</td></tr>
+  </table>
+</td>
+<td><h2>Flexión Lateral</h2>
+  <table>
+    <tr><td>Izquierda:</td><td><input type="text" [formControl]="U_LAT_L" disabled></td><td>{{eval[1]}}</td></tr>
+    <tr><td>Derecha:</td><td><input type="text" [formControl]="U_LAT_R" disabled></td><td>{{eval[2]}}</td></tr>
+    <tr><td>Total:</td><td><input type="text" [formControl]="U_LAT" disabled></td><td>{{eval[3]}}</td></tr>
+  </table>
+</td>
+
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cerrar</button>

@@ -26,6 +26,8 @@ export class ResultadosComponent implements OnInit {
 
   oresultado: AngularFireObject<any>;
   resultado: Resultado;
+  resultado_U: Resultado;
+  
   ref: AngularFireStorageReference;
   eval: Array <String>=[];
   FLEX_F = new FormControl('');
@@ -37,8 +39,19 @@ export class ResultadosComponent implements OnInit {
   LAT_L = new FormControl('');
   LAT_R = new FormControl('');
   LAT = new FormControl('');
+  U_FLEX_F = new FormControl('');
+  U_FLEX_E = new FormControl('');
+  U_FLEX = new FormControl('');
+  U_ROT_L = new FormControl('');
+  U_ROT_R = new FormControl('');
+  U_ROT = new FormControl('');
+  U_LAT_L = new FormControl('');
+  U_LAT_R = new FormControl('');
+  U_LAT = new FormControl('');
 
   camino: string;
+  camino_U: string;
+  camino_L: string;
   caminografica: string;
 
   constructor(public afd: AngularFireDatabase, @Inject(MAT_DIALOG_DATA) data) {
@@ -69,10 +82,27 @@ export class ResultadosComponent implements OnInit {
       this.LAT.setValue(this.resultado.maxPitch.toFixed(2)-this.resultado.minPitch.toFixed(2));
       console.log(this.resultado.patientName);});
   //this.resultado = afd.collection('/Resultados/FOR017/FOR017_Prueba%20Cervical_04-03-2020,%2011:13').valueChanges();
+     
+      this.camino_U = this.camino+"/Sensor 0";
+      this.oresultado = afd.object(this.camino_U).valueChanges().subscribe(data => {
+     // Ojo, pueden estar invertidos
+      console.log(data);
+      this.resultado_U = <resultado>data; 
+      this.U_FLEX_F.setValue(this.resultado_U.maxRoll.toFixed(2));
+      this.U_FLEX_E.setValue(this.resultado_U.minRoll.toFixed(2));
+      this.U_FLEX.setValue(this.resultado_U.maxRoll.toFixed(2)-this.resultado_U.minRoll.toFixed(2));
+      this.U_ROT_L.setValue(this.resultado_U.maxYaw.toFixed(2));
+      this.U_ROT_R.setValue(this.resultado_U.minYaw.toFixed(2));
+      this.U_ROT.setValue(this.resultado_U.maxYaw.toFixed(2)-this.resultado_U.minYaw.toFixed(2));
+      this.U_LAT_L.setValue(this.resultado_U.maxPitch.toFixed(2));
+      this.U_LAT_R.setValue(this.resultado_U.minPitch.toFixed(2));
+      this.U_LAT.setValue(this.resultado_U.maxPitch.toFixed(2)-this.resultado_U.minPitch.toFixed(2));
+      console.log(this.resultado_U.patientName);});
+
+      
+  //this.resultado = afd.collection('/Resultados/FOR017/FOR017_Prueba%20Cervical_04-03-2020,%2011:13').valueChanges();
+     }
   
-
-   }
-
   ngOnInit() {
   }
 
